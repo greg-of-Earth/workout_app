@@ -35,6 +35,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { auth } from '../utils/firebase';
 
+
 export default function RootLayout() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -44,12 +45,13 @@ export default function RootLayout() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       // setUser(user);
+      console.log('auth state changed:', user);
       setLoading(false);
 
       if (!user && pathname !== '/loginScreen' && pathname !== '/signUpScreen') {
         router.replace('/loginScreen'); // go to login if not signed in
-      } if (user && pathname === '/loginScreen') {
-        router.replace('/(tabs)'); // go to tabs if signed in
+      } else if (user && (pathname === '/loginScreen' || pathname === '/signUpScreen')) {
+        router.replace('/(drawer)/(tabs)'); // go to tabs if signed in
       }
     });
 

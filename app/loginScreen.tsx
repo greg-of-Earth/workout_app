@@ -31,7 +31,7 @@ export default function LoginScreen() {
             // navigation.navigate('Home');
             // router.push('/homeScreen');
             router.replace
-            ('/(tabs)');
+            ('/(drawer)/(tabs)');
         } catch (e) {
             console.error('Login error', e);
             setError('Failed to login.');

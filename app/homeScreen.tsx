@@ -1,12 +1,8 @@
 import { Image } from 'expo-image';
 import React from "react";
-import { Platform, StyleSheet } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import SearchBar from '@/components/SearchBar';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import { useDebouncedSearch } from "@/hooks/useDebouncedSearch";
 
 import { useSearchStore } from '../stores/useSearchStore';
@@ -42,7 +38,7 @@ export default function HomeScreen() {
         <>
             <SearchBar onSearch={() => handleSearch(useSearchStore.getState().query )}/>
         </>
-        <ThemedView style={styles.titleContainer}>
+        {/* <ThemedView style={styles.titleContainer}>
           <ThemedText type="title">Home Page</ThemedText>
           <HelloWave />
         </ThemedView>
@@ -76,26 +72,26 @@ export default function HomeScreen() {
             <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
             <ThemedText type="defaultSemiBold">app-example</ThemedText>.
           </ThemedText>
-        </ThemedView>
+        </ThemedView> */}
       </ParallaxScrollView>
     );
   }
   
-  const styles = StyleSheet.create({
-    titleContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      gap: 8,
-    },
-    stepContainer: {
-      gap: 8,
-      marginBottom: 8,
-    },
-    reactLogo: {
-      height: 178,
-      width: 290,
-      bottom: 0,
-      left: 0,
-      position: 'absolute',
-    },
-  });
+//   const styles = StyleSheet.create({
+//     titleContainer: {
+//       flexDirection: 'row',
+//       alignItems: 'center',
+//       gap: 8,
+//     },
+//     stepContainer: {
+//       gap: 8,
+//       marginBottom: 8,
+//     },
+//     reactLogo: {
+//       height: 178,
+//       width: 290,
+//       bottom: 0,
+//       left: 0,
+//       position: 'absolute',
+//     },
+//   });
